@@ -1,10 +1,12 @@
 import Filters from "@/components/filters/Filters";
 import Header from "@/components/header/Header";
 import AllItems from "@/components/items/AllItems";
+import MetaTags from "@/components/reusable/MetaTags";
 
 export default function Home() {
   return (
-    <div>
+    <>
+      <MetaTags />
       <main className="mx-auto max-w-screen-xl">
         <Header />
         <section className="flex justify-between p-4">
@@ -14,6 +16,6 @@ export default function Home() {
           <AllItems />
         </section>
       </main>
-    </div>
+    </>
   );
 }
