@@ -12,7 +12,7 @@ import Price from "@/components/items/Price";
 import AutoUpload from "@/components/items/AutoUpload";
 import MetaTags from "@/components/reusable/MetaTags";
 import Link from "next/link";
-import { BsCartPlusFill } from "react-icons/bs";
+import { BsCartPlusFill, BsChevronLeft } from "react-icons/bs";
 
 const AvatarPage = () => {
   const router = useRouter();
@@ -49,8 +49,16 @@ const AvatarPage = () => {
         <main className="mx-auto max-w-screen-xl">
           <Header />
           <div className="flex flex-col gap-4 p-4">
-            <div>
-              <MainNavigator title="Go back" href="/" />
+            <div className="w-fit">
+              <MainNavigator
+                title={
+                  <div className="flex items-center gap-2 transition group-hover:text-neutral-600">
+                    <BsChevronLeft />
+                    <p>Go back</p>
+                  </div>
+                }
+                href="/"
+              />
             </div>
             <div className="flex flex-col gap-4 md:grid md:grid-cols-2 md:gap-16">
               <div className="flex flex-col gap-4">

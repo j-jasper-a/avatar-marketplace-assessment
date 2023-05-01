@@ -5,6 +5,7 @@ import Pagination from "../reusable/Pagination";
 import DropdownMenu from "./DropdownMenu";
 import SearchBar from "../header/SearchBar";
 import MainNavigator from "../reusable/MainNavigator";
+import { BsChevronDown } from "react-icons/bs";
 
 const PAGE_SIZE = 12;
 const dropdownMenuOptions = [
@@ -37,7 +38,15 @@ const AllItems = () => {
     <div className="flex flex-col gap-4 py-2">
       <SearchBar className="flex shadow md:hidden" />
       <div className="flex items-center justify-between">
-        <MainNavigator title="All avatars" href="/" />
+        <MainNavigator
+          title={
+            <div className="flex items-center gap-2 transition group-hover:text-neutral-600">
+              <p>All avatars</p>
+              <BsChevronDown />
+            </div>
+          }
+          href="/"
+        />
         <DropdownMenu
           dropdownMenuOptions={dropdownMenuOptions}
           onSelect={handleSelect}
