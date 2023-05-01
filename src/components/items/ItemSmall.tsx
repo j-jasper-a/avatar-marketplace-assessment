@@ -5,23 +5,9 @@ import AddToCartButton from "../buttons/AddToCartButton";
 import PlatformAndPrice from "./PlatformAndPrice";
 import CreatorBanner from "./CreatorBanner";
 import Link from "next/link";
+import { Avatar } from "@/interfaces";
 
-interface ItemSmallProps {
-  id: number;
-  name: string;
-  sex: string;
-  price: number;
-  description?: string;
-  ratings: number;
-  likes: number;
-  imageUrl: string;
-  creatorName: string;
-  creatorAvatar: string;
-  autoUpload: boolean;
-  platforms: { platformId: number; platformName: string }[];
-}
-
-const ItemSmall: React.FC<ItemSmallProps> = ({
+const ItemSmall: React.FC<Avatar> = ({
   id,
   name,
   sex,
@@ -55,13 +41,18 @@ const ItemSmall: React.FC<ItemSmallProps> = ({
           <CreatorBanner
             creatorName={creatorName}
             creatorAvatar={creatorAvatar}
+            isSmall={true}
           />
-          <UserSatisfaction value={ratings} likes={likes} />
-          <PlatformAndPrice price={price} platforms={platforms} />
+          <UserSatisfaction ratings={ratings} likes={likes} isSmall={true} />
+          <PlatformAndPrice
+            price={price}
+            platforms={platforms}
+            isSmall={true}
+          />
         </div>
       </div>
       <div className="px-2 py-1 text-white">
-        <AutoUpload autoUpload={autoUpload} platforms={platforms} />
+        <AutoUpload autoUpload={autoUpload} isSmall={true} />
       </div>
     </div>
   );

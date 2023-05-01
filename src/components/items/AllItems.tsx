@@ -4,6 +4,7 @@ import data from "@/data.json";
 import Pagination from "../reusable/Pagination";
 import DropdownMenu from "./DropdownMenu";
 import SearchBar from "../header/SearchBar";
+import MainNavigator from "../reusable/MainNavigator";
 
 const PAGE_SIZE = 12;
 const dropdownMenuOptions = [
@@ -36,7 +37,7 @@ const AllItems = () => {
     <div className="flex flex-col gap-4 py-2">
       <SearchBar className="flex shadow md:hidden" />
       <div className="flex items-center justify-between">
-        <p className="text-xl font-medium">All avatars</p>
+        <MainNavigator title="All avatars" href="/" />
         <DropdownMenu
           dropdownMenuOptions={dropdownMenuOptions}
           onSelect={handleSelect}
@@ -48,6 +49,7 @@ const AllItems = () => {
             id={avatar.id}
             imageUrl={avatar.imageUrl}
             name={avatar.name}
+            description={avatar.description}
             sex={avatar.sex}
             price={avatar.price}
             ratings={avatar.ratings}

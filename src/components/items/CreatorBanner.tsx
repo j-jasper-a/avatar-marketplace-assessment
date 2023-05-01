@@ -3,22 +3,26 @@ import Image from "next/image";
 interface CreatorBannerProps {
   creatorName: string;
   creatorAvatar: string;
+  isSmall: boolean;
 }
 
 const CreatorBanner: React.FC<CreatorBannerProps> = ({
   creatorName,
   creatorAvatar,
+  isSmall,
 }) => {
   return (
-    <div className="flex items-center gap-1">
+    <div className={`${isSmall ? "gap-1" : "gap-2"} flex items-center`}>
       <Image
-        className="h-4 w-4 rounded-full"
+        className={`${isSmall ? "h-4 w-4" : "h-8 w-8"} rounded-full`}
         src={creatorAvatar}
         width={64}
         height={64}
         alt={creatorName}
       />
-      <p className="text-xs opacity-75">{creatorName}</p>
+      <p className={`${isSmall ? "text-xs" : "text-base"} opacity-75`}>
+        {creatorName}
+      </p>
     </div>
   );
 };
